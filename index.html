@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Simple Unblocker</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+        input { padding: 10px; width: 300px; border: 1px solid #ccc; border-radius: 4px; }
+        button { padding: 10px 20px; cursor: pointer; background: #4285f4; color: white; border: none; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>Website Unblocker</h1>
+    <p>Enter a URL to visit it through Google Translate:</p>
+    
+    <input type="text" id="urlInput" placeholder="example.com">
+    <button onclick="unblock()">Go</button>
+
+    <script>
+        function unblock() {
+            var destination = document.getElementById('urlInput').value;
+            if (destination) {
+                // Remove http/https if the user included it to prevent errors
+                destination = destination.replace(/^https?:\/\//, '');
+                window.location = 'https://google.com' + destination;
+            } else {
+                alert("Please enter a URL!");
+            }
+        }
+    </script>
+</body>
+</html>
